@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="listaTelefonica" lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Treinamento Angular JS - Agenda</title>
+	<link rel="stylesheet" type="text/css" href="@{'/public/angularJS/lib/bootstrap/css/bootstrap.css'}">
+	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	<link rel="stylesheet" type="text/css" href="@{'/public/angularJS/css/app.css'}">
+</head>
+<body>
+	<div class="jumbotron" ng-show="loading">
+		<h5>Carregando, por favor aguarde...</h5>
+	</div>
+	<div ng-hide="loading">
+		<div ng-view></div>
+		
+		<script src="@{'/public/angularJS/lib/angular/angular.min.js'}"></script>
+		<script src="@{'/public/angularJS/lib/angular/angular-route.js'}"></script>
+		<script src="@{'/public/angularJS/js/app.js'}"></script>
+		<script src="@{'/public/angularJS/js/configValue.js'}"></script>
+		<script src="@{'/public/angularJS/js/config/serialGeneratorConfig.js'}"></script>
+		<script src="@{'/public/angularJS/js/controlles/listaTelefonicaCtrl.js'}"></script>
+		<script src="@{'/public/angularJS/js/controlles/novoContatoCtrl.js'}"></script>
+		<script src="@{'/public/angularJS/js/services/contatosAPIService.js'}"></script>
+		<script src="@{'/public/angularJS/js/services/operadorasAPIService.js'}"></script>
+		<script src="@{'/public/angularJS/js/services/serialGeneratorService.js'}"></script>
+		<script src="@{'/public/angularJS/js/config/routeConfig.js'}"></script>
+		<script src="@{'/public/angularJS/js/filter/nameFilter.js'}"></script>
+		<script src="@{'/public/angularJS/js/filter/ellipsisFilter.js'}"></script>
+		<script src="@{'/public/angularJS/js/directive/uiDateDirective.js'}"></script>
+		<script src="@{'/public/angularJS/js/interceptors/timestampInterceptor.js'}"></script>
+		<script src="@{'/public/angularJS/js/interceptors/errorInterceptor.js'}"></script>
+		<script src="@{'/public/angularJS/js/config/interceptorsConfig.js'}"></script>
+		<script src="@{'/public/angularJS/js/interceptors/loadingInterceptor.js'}"></script>
+		
+		<div ng-include="'/public/angularJS/view/footer.html'"></div>
+	</div>
+</body>
+</html>
+
+
