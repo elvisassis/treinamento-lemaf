@@ -1,4 +1,5 @@
 myApp.factory("loadingInterceptor", function($q, $rootScope, $timeout){
+	//interceptos loading
 	return{
 		request: function(config){
 			$rootScope.loading = true;
