@@ -12,7 +12,7 @@ myApp.factory("loadingInterceptor", function($q, $rootScope, $timeout){
 		response: function(response){
 			$timeout(function(){
 				$rootScope.loading = false;	
-			},500);
+			},300);
 			return response;
 		},
 		responseErro: function(rejection){
