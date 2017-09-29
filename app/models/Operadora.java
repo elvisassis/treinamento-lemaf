@@ -13,10 +13,10 @@ public class Operadora {
 		
 	}
 	
-	private String nome;
-	private int codigo;
-	private String categoria;
-	private int preco;
+	public String nome;
+	public int codigo;
+	public String categoria;
+	public int preco;
 	
 	
 	public static Operadora[] getOperadoras() {

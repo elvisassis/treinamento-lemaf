@@ -5,6 +5,7 @@ myApp.factory("contatosAPI", function($http, config) {
 	};
 
 	var _saveContato = function(contatos) {
+		console.log($http.post(config.baseUrl + "/contatos/save", contatos));
 		return $http.post(config.baseUrl + "/contatos/save", contatos);
 	};
 

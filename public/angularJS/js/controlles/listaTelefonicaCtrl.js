@@ -1,6 +1,6 @@
 //Declaração do controller listaTelefonicaCtrl
 		myApp.controller("listaTelefonicaCtrl",['$scope','contatos','operadoras','serialGenerator',function($scope,contatos,operadoras,serialGenerator){
-			$scope.app = "Lista Telefonica" //Definição de uma variavel para o nome da aplicação
+			
 			//Declaração do array de contatos
 				
 			$scope.contatos = contatos.data;

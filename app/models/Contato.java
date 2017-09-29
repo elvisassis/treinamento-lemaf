@@ -1,71 +1,44 @@
 package models;
 import play.*;
+import play.db.jpa.GenericModel;
+import play.i18n.Messages;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
 
 import com.google.gson.Gson;
 
-public class Contato {
+@Entity
+@Table(name="contato")
+public class Contato extends GenericModel
+{
 	
 	public Contato() {
 		
 	} 
 	
-	private String telefone;
-	private String data;
-	private Operadora operadora;
-	private String nome; 
-	private String serial;
+	@Id
+	@GeneratedValue
+	public Integer id;
 	
-	public String getSerial() {
-		return serial;
-	}
-
-	public void setSerial(String serial) {
-		this.serial = serial;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
-	public Operadora getOperadora() {
-		return operadora;
-	}
-
-	public void setOperadora(Operadora operadora) {
-		this.operadora = operadora;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	
-	
+	public String telefone;
+	public String data;
+	public Operadora operadora;
+	public String nome; 
+	public String serial;
 	
 	  
+	
+	 
 	 
 	public static Contato[] getContatos() {
 		Gson gson = new Gson();
@@ -82,9 +55,11 @@ public class Contato {
 	public static void saveContato(String contato) {
 		//Gson gson = new Gson();
 		//String json = gson.toJson(contato);
+		String msg="";
 		try {
 	 		FileWriter writer = new FileWriter("db/contato.json");
 			writer.write(contato);
+			msg = Messages.get("contato.salvar.sucesso");
 			writer.close();
 		}catch (IOException e){
 			e.printStackTrace();

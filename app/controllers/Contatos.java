@@ -4,12 +4,13 @@ import java.util.Date;
 
 import models.Contato;
 import play.*;
+import play.i18n.Messages;
 import play.mvc.*;
 import java.util.*;
 
 
 
-public class Contatos extends Controller {
+public class Contatos extends DefautoController {
 
     public static void index(int id) {
     	if (id == 1)
@@ -26,9 +27,8 @@ public class Contatos extends Controller {
     }
     
     public static void save(String body){
-    	//System.out.println(body);
     	Contato.saveContato(body);
-    	//renderText(contato);
+ 
     }
 	
 
