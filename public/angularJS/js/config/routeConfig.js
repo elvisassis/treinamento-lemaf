@@ -29,6 +29,10 @@ myApp.config(function ($routeProvider){
 				}
 			}
 		})
+		.when("/editContato",{
+			templateUrl: "public/angularJS/view/novoContato.html",
+			//controller: "novoContatoCtrl",
+		})
 		
 });
 

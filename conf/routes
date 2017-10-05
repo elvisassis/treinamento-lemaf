@@ -13,9 +13,13 @@ GET		/teste/{id}								Contatos.index
 
 GET 	/contatos/?								Contatos.contatos
 
+GET 	/contato/{id}							Contatos.getContato
+
 GET		/operadoras/?							Operadoras.operadoras
 
-POST	/contatos/save							Contatos.save
+POST	/contato/save							Contatos.save
+
+POST	/contato/delete							Contatos.delete
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

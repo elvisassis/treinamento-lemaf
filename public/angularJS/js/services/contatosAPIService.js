@@ -4,19 +4,22 @@ myApp.factory("contatosAPI", function($http, config) {
 		return $http.get(config.baseUrl + "/contatos");
 	};
 
-	var _saveContato = function(contatos) {
-		console.log($http.post(config.baseUrl + "/contatos/save", contatos));
-		return $http.post(config.baseUrl + "/contatos/save", contatos);
+	var _saveContato = function(contato) {
+		return $http.post(config.baseUrl + "/contato/save", contato);
 	};
+	
+	var _getContato = function(id){
+		return $http.get(config.baseUrl + "/contato/"+id);
+	};
+	
+	var _delContato = function(id){
+		return $http.post(config.baseUrl + "/contato/delete", id);
+	}
 
 	return {
 		getContatos : _getContatos,
-		saveContato : _saveContato
+		saveContato : _saveContato,
+		getContato  : _getContato,
+		delContato	: _delContato
 	};
 });
-
-/*.then(function(success){
-return success;
-},function(error){
-return "não foi possivel carregar os contatos";
-});*/

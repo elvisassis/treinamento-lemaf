@@ -1,13 +1,14 @@
 <div class="container jumbotron">
 <form name="contatoForm">
-	<input class="form-control" type="text" ng-model="contato.nome" name="nome" placeholder="Nome" ng-required="true" ng-minLength="10" />
-	<input class="form-control" type="text" ng-model="contato.telefone"name="telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
-	<input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date>
+	<input class="form-control"  type="text" ng-model="contato.nome" name="nome" placeholder="Nome" ng-required="true" ng-minLength="10" />
+	<input class="form-control"  type="text" ng-model="contato.telefone"name="telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
+	<input class="form-control"  type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date>
 	<!-- Utilizacao da diretiva ng-options para mostar as opçoes de operadoras disponiveis -->
 	<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' ) ' for operadora in operadoras">
-		<option value="">Selecione uma operadora</option>}
+		<option value="">Selecione uma operadora</option>	
 	</select>
 </form>
+
 
 <!-- Utilizando o ng-required $error e $dirty para validar o formulario -->
 <div
@@ -24,7 +25,11 @@
 	class="alert alert-danger">O campo telefone deve ter o formato
 	DDDD-DDDD.</div>
 <!-- Usando o ng-click para incluir a para apagar um contato -->
-<button class="btn btn-primary btn-block"
-	ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar
-	Contato</button>
+<button class="btn btn-primary btn-block" ng-show="add"
+	ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato
+</button>
+
+<button class="btn btn-primary btn-block" ng-show="edit"
+	ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">OK
+</button>
 	</div>
