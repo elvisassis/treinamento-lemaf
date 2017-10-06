@@ -37,9 +37,10 @@ public class Contato extends GenericModel
 	} 
 	
 	@Id
+	@Column(name="id_contato")
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="seqContato")
 	@SequenceGenerator(name="seqContato", sequenceName="auto_increment_contato")
-	public Integer id_contato;
+	public Integer idContato;
 	
 	@Column(name="telefone")
 	public String telefone;
@@ -64,15 +65,33 @@ public class Contato extends GenericModel
 
 	}
 	
-	public static void save(String contato) {
+	public static void save(String contatos) {
 		Gson gson = new Gson();
-		Contato cont = gson.fromJson(contato, Contato.class);
-		//Contato.em().persist(cont);
-		cont.save();
+		Contato contato = gson.fromJson(contatos, Contato.class);
+		//Contato.em().persist(contato);
+		contato.save();
 	}
 	
 	
+	public static void remover(Integer idContato) {
+		play.Logger.info("Id contato "+idContato);
+		Contato contato = Contato.find("idContato = ?", idContato).first();
+		//Contato contato = Contato.em().getReference(Contato.class, idContato);
+    	contato.delete();
+	}
 	
+	public static void editar(String contatos) throws CloneNotSupportedException {
+		Gson gson = new Gson();
+		Contato contato = gson.fromJson(contatos, Contato.class);
+		//Contato newContato = Contato.em().merge(contato);
+		//System.out.println(newContato.operadora.nome);
+		
+		Contato contatoAtualizado = contato.merge();
+		contatoAtualizado.save();
+		//Contato contatoBD = Contato.find("idContato = ?", contato.idContato).first();
+
+		
+	}
 		
 
 	

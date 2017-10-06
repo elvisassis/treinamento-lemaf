@@ -21,6 +21,8 @@ POST	/contato/save							Contatos.save
 
 POST	/contato/delete							Contatos.delete
 
+POST 	/contato/edit							Contatos.edit
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 

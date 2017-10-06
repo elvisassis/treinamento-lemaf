@@ -18,11 +18,7 @@ myApp.controller("listaTelefonicaCtrl", [ '$scope', 'contatos', 'operadoras',
 			
 
 			$scope.editContato = function(contato){
-				$rootScope.contato = contato;
-				$rootScope.operadoras = operadoras.data;
-				console.log($rootScope.contato);
-				$rootScope.add = false;
-				$rootScope.edit = true;
+				contatosAPI.setData(contato);
 				$location.path("/editContato");
 			}
 
@@ -48,7 +44,7 @@ myApp.controller("listaTelefonicaCtrl", [ '$scope', 'contatos', 'operadoras',
 
 		    $scope.clicouBotaoSim = function()
 		    {
-		    	contatosAPI.delContato($scope.contato.id_contato).then(
+		    	contatosAPI.delContato($scope.contato.idContato).then(
 					function(sucess){
 					$scope.show = false;
 					$route.reload();

@@ -37,9 +37,12 @@ public class Contatos extends DefautController {
     }
 	
     public static void delete(Integer body) {
-    	//Contato contato = Contato.em().getReference(Contato.class, body);
-    	Contato contato = Contato.find("id = ?", body).first();
-    	contato.delete();
+    	Contato.remover(body);
+    }
+    
+    public static void edit(String body) {
+    	//System.out.println(body);
+    	Contato.editar(body);
     }
 
 }

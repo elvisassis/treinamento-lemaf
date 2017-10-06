@@ -1,20 +1,16 @@
 package models;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.google.gson.Gson;
-
-import play.*;
 import play.db.jpa.GenericModel;
 
 @Entity
@@ -26,9 +22,10 @@ public class Operadora extends GenericModel{
 	}
 	
 	@Id
+	@Column(name="id_operadora")
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="seqOperadora")
 	@SequenceGenerator(name="seqOperadora", sequenceName="auto_increment_operadora")
-	public Integer id_operadora;
+	public Integer idOperadora;
 	
 	@Column(name="nome")
 	public String nome;
@@ -42,24 +39,14 @@ public class Operadora extends GenericModel{
 	@Column(name="preco")
 	public int preco;
 	
+	//@OneToMany(mappedBy="operadora", fetch=FetchType.LAZY)
+	//public List<Contato> contatos;
+	
 	
 	public static List<Operadora> findOperadoras(){
 		return Operadora.findAll();
 	}
 	
-	/*public static Operadora[] getOperadoras() {
-		Gson gson = new Gson();
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("db/operadoras.json"));
-			return gson.fromJson(br, Operadora[].class);
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
-			
-		return null;
-		
-		
-	}*/
 	
 	
 	

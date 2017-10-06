@@ -27,11 +27,20 @@ myApp.config(function ($routeProvider){
 				operadoras: function (operadorasAPI){
 					return operadorasAPI.getOperadoras();
 				}
+				
 			}
 		})
 		.when("/editContato",{
-			templateUrl: "public/angularJS/view/novoContato.html",
-			//controller: "novoContatoCtrl",
+			templateUrl: "public/angularJS/view/editContato.html",
+			controller:  "editContatoCtrl",
+			resolve: {
+				contato: function (contatosAPI){
+					return contatosAPI.getData();
+				},
+				operadoras: function (operadorasAPI){
+					return operadorasAPI.getOperadoras();
+				}
+			}
 		})
 		
 });
