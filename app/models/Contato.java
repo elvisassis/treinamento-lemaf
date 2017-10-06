@@ -80,7 +80,7 @@ public class Contato extends GenericModel
     	contato.delete();
 	}
 	
-	public static void editar(String contatos) throws CloneNotSupportedException {
+	public static void editar(String contatos){
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		//Contato newContato = Contato.em().merge(contato);

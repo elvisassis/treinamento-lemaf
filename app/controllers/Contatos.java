@@ -40,7 +40,7 @@ public class Contatos extends DefautController {
     	Contato.remover(body);
     }
     
-    public static void edit(String body) {
+    public static void edit(String body){
     	//System.out.println(body);
     	Contato.editar(body);
     }

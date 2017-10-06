@@ -12,7 +12,7 @@
 
 			$scope.operadoras = operadoras.data;
 			$scope.adicionarContato = function(contato) {
-				/*contato.serial = serialGenerator.generate();
+				contato.serial = serialGenerator.generate();
 				contatosAPI.saveContato(contato).then(
 						function(success) {
 							
@@ -21,7 +21,7 @@
 							console.log(success);
 							$scope.contatoForm.$setPristine();
 							$location.path("/contatos");
-						});*/
+						});
 				console.log(contato);
 			};
 		} ]);
