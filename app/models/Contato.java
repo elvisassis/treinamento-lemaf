@@ -80,7 +80,11 @@ public class Contato extends GenericModel
     	contato.delete();
 	}
 	
+<<<<<<< HEAD
 	public static void editar(String contatos) {
+=======
+	public static void editar(String contatos){
+>>>>>>> 20604a603d0be2f7423ead8c09279ac2c7f0b5cb
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		Contato contatoAtualizado = contato.merge();

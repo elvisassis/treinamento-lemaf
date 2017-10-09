@@ -21,5 +21,9 @@
 							$scope.contatoForm.$setPristine();
 							$location.path("/contatos");
 						});
+<<<<<<< HEAD
+=======
+				console.log(contato);
+>>>>>>> 20604a603d0be2f7423ead8c09279ac2c7f0b5cb
 			};
 		} ]);
