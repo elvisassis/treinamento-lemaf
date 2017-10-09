@@ -80,19 +80,20 @@ public class Contato extends GenericModel
     	contato.delete();
 	}
 	
-	public static void editar(String contatos) throws CloneNotSupportedException {
+	public static void editar(String contatos) {
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
-		//Contato newContato = Contato.em().merge(contato);
-		//System.out.println(newContato.operadora.nome);
-		
 		Contato contatoAtualizado = contato.merge();
 		contatoAtualizado.save();
-		//Contato contatoBD = Contato.find("idContato = ?", contato.idContato).first();
 
 		
 	}
-		
+	
+	public static List<Contato> getContatosOperadoras(Operadora operadora){
+		Query query = Contato.em().createQuery("select c from Contato c where c.operadora = :operadora");
+		query.setParameter("operadora", operadora);
+		return query.getResultList();
+	}
 
 	
 

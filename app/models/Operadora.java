@@ -45,12 +45,16 @@ public class Operadora extends GenericModel{
 	
 	public static List<Operadora> findOperadoras(){
 		return Operadora.findAll();
+		
 	}
-	
-	
-	
-	
-	
-	
+
+	public static void delete(Operadora operadora) {
+		//List<Contato> contatos = Contato.getContatosOperadoras(operadora);
+		List<Contato> contatos = Contato.find("byOperadora", operadora).fetch();
+		if(contatos.size() != 0)
+			play.Logger.info("Não foi possivel deletar, exitste contato associado");
+		else
+			play.Logger.info("Operadora deletada com sucesso");
+	} 
 	
 }
