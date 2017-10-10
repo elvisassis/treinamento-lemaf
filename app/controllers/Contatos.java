@@ -23,7 +23,7 @@ public class Contatos extends DefautController {
     	Contato contato = new Contato();
     	renderJSON(contato.findContatos());
     	
-    }
+    } 
     
     public static void getContato(Integer id) {
     	renderJSON(Contato.findById(id));
