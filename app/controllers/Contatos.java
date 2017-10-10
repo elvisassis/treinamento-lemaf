@@ -38,15 +38,10 @@ public class Contatos extends DefautController {
     	contato.remover(body);
     }
     
-<<<<<<< HEAD
-    public static void edit(String body){
-    	//System.out.println(body);
-    	Contato.editar(body);
-=======
+
     public static void edit(String body) {
     	Contato contato = new Contato();
     	contato.editar(body);
->>>>>>> dev
     }
 
 }
