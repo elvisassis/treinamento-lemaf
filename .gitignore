@@ -1,7 +1,7 @@
 #igonorar todos arquivos da pasta tmp
-tmp/**/*
-
+tmp/
 .classpath
-.settings/**/*
+.settings/
 .project
-eclipse/**/*
+eclipse/
+
