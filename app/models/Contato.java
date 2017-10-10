@@ -91,6 +91,7 @@ public class Contato extends GenericModel
 		
 	}
 	
+	//
 	public static List<Contato> getContatosOperadoras(Operadora operadora){
 		Query query = Contato.em().createQuery("select c from Contato c where c.operadora = :operadora");
 		query.setParameter("operadora", operadora);
