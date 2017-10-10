@@ -39,6 +39,7 @@ public class Contatos extends DefautController {
     	contato.remover(body);
     }
     
+
     public static void edit(String body) {
     	Contato contato = new Contato();
     	contato.editar(body);
