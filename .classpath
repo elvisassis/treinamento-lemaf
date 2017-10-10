@@ -70,5 +70,6 @@
 	<classpathentry kind="lib" path="/opt/play/play-1.4.4/framework/lib/c3p0-oracle-thin-extras-0.9.5.jar"/>
 	<classpathentry kind="lib" path="/opt/play/play-1.4.4/framework/lib/signpost-core-1.2.1.2.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="/opt/play/play-1.4.4/framework/lib/postgresql-9.2-1004.jdbc41.jar"/>
 	<classpathentry kind="output" path="eclipse/classes"/>
 </classpath>
