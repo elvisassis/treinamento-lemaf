@@ -13,8 +13,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,6 +27,8 @@ import javax.persistence.GenerationType;
 
 import com.google.gson.Gson;
 
+import play.db.jpa.GenericModel;
+
 @Entity
 @Table(name="contato")
 public class Contato extends GenericModel
@@ -38,7 +40,7 @@ public class Contato extends GenericModel
 	
 	@Id
 	@Column(name="id_contato")
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="seqContato")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqContato")
 	@SequenceGenerator(name="seqContato", sequenceName="auto_increment_contato")
 	public Integer idContato;
 	
@@ -59,13 +61,13 @@ public class Contato extends GenericModel
 	public String serial;
 	
 
-	public static List<Contato> findContatos() {
+	public List<Contato> findContatos() {
 		return Contato.findAll();	
 		//return Contato.em().createQuery("from Contato").getResultList();
 
 	}
 	
-	public static void save(String contatos) {
+	public void save(String contatos) {
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		//Contato.em().persist(contato);
@@ -73,18 +75,14 @@ public class Contato extends GenericModel
 	}
 	
 	
-	public static void remover(Integer idContato) {
-		play.Logger.info("Id contato "+idContato);
+	public void remover(Integer idContato) {
+		
 		Contato contato = Contato.find("idContato = ?", idContato).first();
 		//Contato contato = Contato.em().getReference(Contato.class, idContato);
     	contato.delete();
 	}
 	
-<<<<<<< HEAD
-	public static void editar(String contatos) {
-=======
-	public static void editar(String contatos){
->>>>>>> 20604a603d0be2f7423ead8c09279ac2c7f0b5cb
+	public void editar(String contatos) {
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		Contato contatoAtualizado = contato.merge();

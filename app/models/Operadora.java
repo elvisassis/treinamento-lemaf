@@ -23,7 +23,7 @@ public class Operadora extends GenericModel{
 	
 	@Id
 	@Column(name="id_operadora")
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="seqOperadora")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqOperadora")
 	@SequenceGenerator(name="seqOperadora", sequenceName="auto_increment_operadora")
 	public Integer idOperadora;
 	
@@ -43,7 +43,7 @@ public class Operadora extends GenericModel{
 	//public List<Contato> contatos;
 	
 	
-	public static List<Operadora> findOperadoras(){
+	public List<Operadora> findOperadoras(){
 		return Operadora.findAll();
 		
 	}

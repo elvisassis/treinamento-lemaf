@@ -6,7 +6,8 @@ import play.mvc.*;
 public class Operadoras extends DefautController {
 
     public static void operadoras() {
-        renderJSON(Operadora.findOperadoras());
+    	Operadora operadora = new Operadora();
+        renderJSON(operadora.findOperadoras());
     }
 
 }
