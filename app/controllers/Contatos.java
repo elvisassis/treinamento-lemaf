@@ -2,18 +2,13 @@ package controllers;
 
 import java.util.Date;
 
-import javax.persistence.EntityManager;
-
 import models.Contato;
-import play.*;
-import play.i18n.Messages;
-import play.mvc.*;
-import java.util.*;
 
 
 
 public class Contatos extends DefautController {
 
+	
     public static void index(int id) {
     	if (id == 1)
     		renderJSON(new Date());
@@ -24,7 +19,8 @@ public class Contatos extends DefautController {
     }
     	
     public static void contatos() {
-    	renderJSON(Contato.findContatos());
+    	Contato contato = new Contato();
+    	renderJSON(contato.findContatos());
     	
     }
     
@@ -33,16 +29,18 @@ public class Contatos extends DefautController {
     }
     
     public static void save(String body){
-    	Contato.save(body);
+    	Contato contato = new Contato();
+    	contato.save(body);
     }
 	
     public static void delete(Integer body) {
-    	Contato.remover(body);
+    	Contato contato = new Contato();
+    	contato.remover(body);
     }
     
     public static void edit(String body) {
-    	//System.out.println(body);
-    	Contato.editar(body);
+    	Contato contato = new Contato();
+    	contato.editar(body);
     }
 
 }

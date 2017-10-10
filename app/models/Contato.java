@@ -1,31 +1,20 @@
 package models;
-import play.*;
-import play.db.jpa.GenericModel;
-import play.db.jpa.JPABase;
-import play.i18n.Messages;
-import play.mvc.Http.Response;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 import com.google.gson.Gson;
+
+import play.db.jpa.GenericModel;
 
 @Entity
 @Table(name="contato")
@@ -38,7 +27,7 @@ public class Contato extends GenericModel
 	
 	@Id
 	@Column(name="id_contato")
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="seqContato")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqContato")
 	@SequenceGenerator(name="seqContato", sequenceName="auto_increment_contato")
 	public Integer idContato;
 	
@@ -59,13 +48,13 @@ public class Contato extends GenericModel
 	public String serial;
 	
 
-	public static List<Contato> findContatos() {
+	public List<Contato> findContatos() {
 		return Contato.findAll();	
 		//return Contato.em().createQuery("from Contato").getResultList();
 
 	}
 	
-	public static void save(String contatos) {
+	public void save(String contatos) {
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		//Contato.em().persist(contato);
@@ -73,14 +62,14 @@ public class Contato extends GenericModel
 	}
 	
 	
-	public static void remover(Integer idContato) {
-		play.Logger.info("Id contato "+idContato);
+	public void remover(Integer idContato) {
+		
 		Contato contato = Contato.find("idContato = ?", idContato).first();
 		//Contato contato = Contato.em().getReference(Contato.class, idContato);
     	contato.delete();
 	}
 	
-	public static void editar(String contatos) {
+	public void editar(String contatos) {
 		Gson gson = new Gson();
 		Contato contato = gson.fromJson(contatos, Contato.class);
 		Contato contatoAtualizado = contato.merge();
