@@ -17,7 +17,8 @@ public class Contatos extends DefautController {
     		
     	}
     }
-    	
+    
+    
     public static void contatos() {
     	Contato contato = new Contato();
     	renderJSON(contato.findContatos());
