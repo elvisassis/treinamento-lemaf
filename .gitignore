@@ -1,0 +1,7 @@
+#igonorar todos arquivos da pasta tmp
+tmp/**/*
+
+.classpath
+.settings/**/*
+.project
+eclipse/**/*
